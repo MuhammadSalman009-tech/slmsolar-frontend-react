@@ -71,67 +71,28 @@ export default function Gallery() {
                     tag
                 </p>
                 <div className='row'>
-                    {galleries.map((gallery, index) => (
-                        <div className='col-lg-6'>
-                            <h2 className='text-center'>{gallery.name}</h2>
-                            <Swiper
-                                style={{
-                                    '--swiper-navigation-color': '#fff',
-                                    '--swiper-pagination-color': '#fff',
-                                }}
-                                spaceBetween={10}
-                                navigation={true}
-                                thumbs={{ swiper: thumbsSwiper }}
-                                modules={[FreeMode, Navigation, Thumbs]}
-                                className='mySwiper2'>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image1} />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image2} />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image3} />
-                                </SwiperSlide>
-                                {gallery.image4 ? (
-                                    <SwiperSlide>
-                                        <img
-                                            src={BackendURL + gallery.image4}
-                                        />
-                                    </SwiperSlide>
-                                ) : (
-                                    ''
-                                )}
-                            </Swiper>
-                            <Swiper
-                                onSwiper={setThumbsSwiper}
-                                spaceBetween={10}
-                                slidesPerView={4}
-                                freeMode={true}
-                                watchSlidesProgress={true}
-                                modules={[FreeMode, Navigation, Thumbs]}
-                                className='mySwiper'>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image1} />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image2} />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={BackendURL + gallery.image3} />
-                                </SwiperSlide>
-                                {gallery.image4 ? (
-                                    <SwiperSlide>
-                                        <img
-                                            src={BackendURL + gallery.image4}
-                                        />
-                                    </SwiperSlide>
-                                ) : (
-                                    ''
-                                )}
-                            </Swiper>
-                        </div>
-                    ))}
+                    {galleries.map((gallery, index) => {
+                        var images = [
+                            {
+                                original: BackendURL + gallery.image1,
+                                thumbnail: BackendURL + gallery.image1,
+                            },
+                            {
+                                original: BackendURL + gallery.image2,
+                                thumbnail: BackendURL + gallery.image2,
+                            },
+                            {
+                                original: BackendURL + gallery.image3,
+                                thumbnail: BackendURL + gallery.image3,
+                            },
+                        ]
+                        return (
+                            <div className='col-lg-6'>
+                                <h2 className='text-center'>{gallery.name}</h2>
+                                <ImageGallery items={images} />
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
