@@ -17,6 +17,10 @@ import ReferUs from './screens/ReferUs'
 import Gallery from './screens/Gallery'
 import ChatPopup from './screens/home/ChatPopup'
 import Whatsapp from './screens/home/Whatsapp'
+import Login from './screens/auth/Login'
+import Dashboard from './screens/admin/Dashboard'
+import Create from './screens/admin/testimonials/Create'
+import Index from './screens/admin/testimonials/Index'
 
 function App() {
     return (
@@ -27,6 +31,23 @@ function App() {
                 </div>
                 <Navbar />
                 <Switch>
+                    <Route exact path={'/login'} component={Login} />
+                    <Route
+                        exact
+                        path={'/admin/dashboard'}
+                        component={Dashboard}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/testimonials'}
+                        component={Index}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/testimonials/create'}
+                        component={Create}
+                    />
+
                     <Route path='/home'>
                         <Home />
                     </Route>
