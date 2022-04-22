@@ -8,6 +8,7 @@ import './testimonials.css'
 
 export default function Index() {
     const [testimonials, setTestimonials] = useState([])
+    const [deleteTestimonialID, setDeleteTestimonialID] = useState('')
 
     useEffect(() => {
         axios.get(BackendURL + 'api/testimonials').then((response) => {
@@ -16,8 +17,63 @@ export default function Index() {
             console.log(testimonials)
         })
     }, [])
+    function deleteTestimonial() {
+        axios
+            .delete(BackendURL + 'api/testimonials/' + deleteTestimonialID, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+            .then((response) => {
+                if (response.status == 204) {
+                    setTestimonials(
+                        testimonials.filter(function (testimonial) {
+                            return testimonial.id !== deleteTestimonialID
+                        })
+                    )
+                }
+            })
+    }
     return (
         <div className='row'>
+            <div
+                class='modal fade'
+                id='exampleModal'
+                tabindex='-1'
+                aria-labelledby='exampleModalLabel'
+                aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title' id='exampleModalLabel'>
+                                Are you sure you want to delete?
+                            </h5>
+                            <button
+                                type='button'
+                                class='close'
+                                data-dismiss='modal'
+                                aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                            </button>
+                        </div>
+                        <div class='modal-body d-flex justify-content-end'>
+                            <button
+                                type='button'
+                                class='btn btn-secondary btn-sm m-1'
+                                data-dismiss='modal'>
+                                Cancel
+                            </button>
+                            <button
+                                type='button'
+                                class='btn btn-sm btn-warning m-1'
+                                onClick={deleteTestimonial}
+                                data-dismiss='modal'>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className='col-md-3'>
                 <SideNav />
             </div>
@@ -55,7 +111,15 @@ export default function Index() {
                                             to='/admin/testimonials/edit'>
                                             Edit
                                         </Link>
-                                        <button className='btn btn-sm btn-danger mx-1'>
+                                        <button
+                                            className='btn btn-sm btn-danger mx-1'
+                                            data-toggle='modal'
+                                            data-target='#exampleModal'
+                                            onClick={() =>
+                                                setDeleteTestimonialID(
+                                                    testimonial.id
+                                                )
+                                            }>
                                             Delete
                                         </button>
                                     </td>
