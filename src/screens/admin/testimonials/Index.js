@@ -108,7 +108,7 @@ export default function Index() {
                                     <td>
                                         <Link
                                             className='btn btn-sm btn-warning'
-                                            to='/admin/testimonials/edit'>
+                                            to={`/admin/testimonials/${testimonial.id}/edit`}>
                                             Edit
                                         </Link>
                                         <button

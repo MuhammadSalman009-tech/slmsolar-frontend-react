@@ -21,6 +21,7 @@ import Login from './screens/auth/Login'
 import Dashboard from './screens/admin/Dashboard'
 import Create from './screens/admin/testimonials/Create'
 import Index from './screens/admin/testimonials/Index'
+import Edit from './screens/admin/testimonials/Edit'
 
 function App() {
     return (
@@ -46,6 +47,11 @@ function App() {
                         exact
                         path={'/admin/testimonials/create'}
                         component={Create}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/testimonials/:id/edit'}
+                        component={Edit}
                     />
 
                     <Route path='/home'>
