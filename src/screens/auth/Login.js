@@ -4,9 +4,13 @@ import { useHistory } from 'react-router-dom'
 import { BackendURL } from '../../url'
 import './auth.css'
 export default function Login() {
+    let history = useHistory()
+    if (localStorage.getItem('loggedIn')) {
+        history.push('/admin/testimonials')
+    }
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
-    let history = useHistory()
+
     const handleSubmit = (e) => {
         e.preventDefault()
         // console.log(email, password)
@@ -23,7 +27,7 @@ export default function Login() {
                     )
                     localStorage.setItem('token', response.data.token)
                     localStorage.setItem('loggedIn', true)
-                    history.push('/admin/dashboard')
+                    history.push('/admin/testimonials')
                 }
             })
     }

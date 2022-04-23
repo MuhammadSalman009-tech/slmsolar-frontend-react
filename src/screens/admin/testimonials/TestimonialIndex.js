@@ -5,8 +5,10 @@ import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import axios from 'axios'
 import './testimonials.css'
+import authenticatedUser from '../../auth/AuthenticatedUser'
 
 export default function TestimonialIndex() {
+    authenticatedUser()
     const [testimonials, setTestimonials] = useState([])
     const [deleteTestimonialID, setDeleteTestimonialID] = useState('')
 

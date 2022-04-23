@@ -5,8 +5,10 @@ import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import axios from 'axios'
 import './projects.css'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 
 export default function ProjectIndex() {
+    AuthenticatedUser()
     const [projects, setProjects] = useState([])
     const [deleteProjectID, setDeleteProjectID] = useState('')
 

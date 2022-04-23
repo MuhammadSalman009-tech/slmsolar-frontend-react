@@ -7,7 +7,9 @@ import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import { set } from 'date-fns'
 import './testimonials.css'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 export default function TestimonialEdit() {
+    AuthenticatedUser()
     let { id } = useParams()
     const [testimonial, setTestimonial] = React.useState({
         name: '',

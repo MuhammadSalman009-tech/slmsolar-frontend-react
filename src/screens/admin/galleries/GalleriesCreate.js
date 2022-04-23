@@ -3,8 +3,10 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 import '../dashboard.css'
 export default function GalleriesCreate() {
+    AuthenticatedUser()
     const [name, setName] = React.useState('')
     const [image1, setImage1] = React.useState(null)
     const [image2, setImage2] = React.useState(null)
@@ -56,7 +58,7 @@ export default function GalleriesCreate() {
                     <form onSubmit={handleSubmit} className='dashboard-form'>
                         <h6>Add New gallery</h6>
                         <div className='mb-3'>
-                            <label for='name' className='form-label'>
+                            <label htmlFor='name' className='form-label'>
                                 Gallery Name
                             </label>
                             <input
@@ -70,7 +72,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image1' className='form-label'>
+                            <label htmlFor='image1' className='form-label'>
                                 Image1
                             </label>
                             <input
@@ -82,7 +84,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image2' className='form-label'>
+                            <label htmlFor='image2' className='form-label'>
                                 Image2
                             </label>
                             <input
@@ -94,7 +96,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image3' className='form-label'>
+                            <label htmlFor='image3' className='form-label'>
                                 Image3
                             </label>
                             <input
@@ -106,7 +108,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image4' className='form-label'>
+                            <label htmlFor='image4' className='form-label'>
                                 Image4
                             </label>
                             <input
@@ -118,7 +120,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image5' className='form-label'>
+                            <label htmlFor='image5' className='form-label'>
                                 Image5
                             </label>
                             <input
@@ -130,7 +132,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image6' className='form-label'>
+                            <label htmlFor='image6' className='form-label'>
                                 Image6
                             </label>
                             <input
@@ -142,7 +144,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image7' className='form-label'>
+                            <label htmlFor='image7' className='form-label'>
                                 Image7
                             </label>
                             <input
@@ -154,7 +156,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image7' className='form-label'>
+                            <label htmlFor='image7' className='form-label'>
                                 Image7
                             </label>
                             <input
@@ -166,7 +168,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image8' className='form-label'>
+                            <label htmlFor='image8' className='form-label'>
                                 Image8
                             </label>
                             <input
@@ -178,7 +180,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image9' className='form-label'>
+                            <label htmlFor='image9' className='form-label'>
                                 Image9
                             </label>
                             <input
@@ -190,7 +192,7 @@ export default function GalleriesCreate() {
                             />
                         </div>
                         <div className='mb-3'>
-                            <label for='image10' className='form-label'>
+                            <label htmlFor='image10' className='form-label'>
                                 Image10
                             </label>
                             <input

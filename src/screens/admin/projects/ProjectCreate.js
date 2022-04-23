@@ -3,8 +3,10 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 import '../dashboard.css'
 export default function ProjectCreate() {
+    AuthenticatedUser()
     const [name, setName] = React.useState('')
     const [video, setVideo] = React.useState(null)
     let history = useHistory()

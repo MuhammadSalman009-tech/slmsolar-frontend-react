@@ -35,8 +35,8 @@ export default function Gallery() {
                         These are the videos of our previous projects
                     </p>
                     <div className='row m-0'>
-                        {projects.map((project) => (
-                            <div className='col-lg-6'>
+                        {projects.map((project, index) => (
+                            <div className='col-lg-6' key={index}>
                                 <video
                                     className='shadow rounded-lg'
                                     controls
@@ -114,7 +114,7 @@ export default function Gallery() {
                                 : '',
                         ]
                         return (
-                            <div className='col-lg-6'>
+                            <div className='col-lg-6' key={index}>
                                 <h2 className='text-center'>{gallery.name}</h2>
                                 <ImageGallery items={images} />
                             </div>

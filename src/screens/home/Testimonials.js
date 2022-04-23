@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { BackendURL } from '../../url'
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-import { Navigation } from 'swiper'
+import { Navigation, Pagination } from 'swiper'
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([])
 
@@ -24,13 +24,35 @@ const Testimonials = () => {
                 </div>
                 <Swiper
                     // install Swiper modules
-                    modules={[Navigation]}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
                     spaceBetween={50}
-                    slidesPerView={3}
-                    navigation>
+                    slidesPerView={1}
+                    className='h-auto'
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 10,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 10,
+                        },
+                    }}>
                     {testimonials.map((testimonial) => (
                         <SwiperSlide key={testimonial.id}>
-                            <div className='b-lblue d-flex flex-column align-items-center p-2 rounded-lg shadow'>
+                            <div className='b-lblue d-flex flex-column align-items-center p-2 rounded-lg shadow h-100 w-100'>
                                 <img
                                     className='testimonial-img'
                                     src={BackendURL + testimonial.profile}

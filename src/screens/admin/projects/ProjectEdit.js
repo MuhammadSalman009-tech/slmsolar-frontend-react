@@ -7,7 +7,9 @@ import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import { set } from 'date-fns'
 import './projects.css'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 export default function GalleriesEdit() {
+    AuthenticatedUser()
     let { id } = useParams()
     const [project, setProject] = React.useState({
         name: '',

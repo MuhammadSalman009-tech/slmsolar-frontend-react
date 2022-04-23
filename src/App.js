@@ -28,6 +28,7 @@ import ProjectEdit from './screens/admin/projects/ProjectEdit'
 import GalleriesEdit from './screens/admin/projects/ProjectEdit'
 import GalleriesCreate from './screens/admin/galleries/GalleriesCreate'
 import GalleriesIndex from './screens/admin/galleries/GalleriesIndex'
+import Profile from './screens/auth/Profile'
 
 function App() {
     return (
@@ -40,6 +41,11 @@ function App() {
                 <Switch>
                     {/* dashboard routes */}
                     <Route exact path={'/login'} component={Login} />
+                    <Route
+                        exact
+                        path={'/admin/profile/:id'}
+                        component={Profile}
+                    />
                     <Route
                         exact
                         path={'/admin/dashboard'}

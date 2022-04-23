@@ -5,8 +5,10 @@ import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import axios from 'axios'
 import './galleries.css'
+import AuthenticatedUser from '../../auth/AuthenticatedUser'
 
 export default function GalleriesIndex() {
+    AuthenticatedUser()
     const [galleries, setGalleries] = useState([])
     const [deleteGalleryID, setDeleteTestimonialID] = useState('')
 
@@ -96,7 +98,7 @@ export default function GalleriesIndex() {
                                 <th>Actions</th>
                             </tr>
                             {galleries.map((gallery, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <th scope='row'>{index + 1}</th>
                                     <td>{gallery.name}</td>
                                     <td width={300}>
