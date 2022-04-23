@@ -79,7 +79,14 @@ export default function ProjectIndex() {
             </div>
             <div className='col-md-9'>
                 <div className='container mt-3'>
-                    <h5>Projects</h5>
+                    <div className='d-flex justify-content-between my-2'>
+                        <h5>Projects</h5>
+                        <Link
+                            to='/admin/projects/create'
+                            className='btn btn-primary'>
+                            <i class='fa fa-plus'></i> Add Project
+                        </Link>
+                    </div>
                     <table class='table'>
                         <tbody>
                             <tr class='bg-primary text-white'>

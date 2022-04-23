@@ -16,6 +16,11 @@ export default function SideNav() {
                         to='/admin/projects'>
                         Projects
                     </Link>
+                    <Link
+                        className='btn btn-primary btn-sm d-block align-items-center mb-2'
+                        to='/admin/galleries'>
+                        Galleries
+                    </Link>
                 </li>
                 <li className='border-top my-3'></li>
                 <li className='mb-1'>

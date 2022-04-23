@@ -25,6 +25,9 @@ import TestimonialEdit from './screens/admin/testimonials/TestimonialEdit'
 import ProjectIndex from './screens/admin/projects/ProjectIndex'
 import ProjectCreate from './screens/admin/projects/ProjectCreate'
 import ProjectEdit from './screens/admin/projects/ProjectEdit'
+import GalleriesEdit from './screens/admin/projects/ProjectEdit'
+import GalleriesCreate from './screens/admin/galleries/GalleriesCreate'
+import GalleriesIndex from './screens/admin/galleries/GalleriesIndex'
 
 function App() {
     return (
@@ -35,12 +38,14 @@ function App() {
                 </div>
                 <Navbar />
                 <Switch>
+                    {/* dashboard routes */}
                     <Route exact path={'/login'} component={Login} />
                     <Route
                         exact
                         path={'/admin/dashboard'}
                         component={Dashboard}
                     />
+                    {/*dashboard testimonial routes */}
                     <Route
                         exact
                         path={'/admin/testimonials'}
@@ -56,6 +61,7 @@ function App() {
                         path={'/admin/testimonials/:id/edit'}
                         component={TestimonialEdit}
                     />
+                    {/* dashboard project routes */}
                     <Route
                         exact
                         path={'/admin/projects'}
@@ -71,6 +77,23 @@ function App() {
                         path={'/admin/projects/:id/edit'}
                         component={ProjectEdit}
                     />
+                    {/* dashboard gallery routes */}
+                    <Route
+                        exact
+                        path={'/admin/galleries'}
+                        component={GalleriesIndex}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/galleries/create'}
+                        component={GalleriesCreate}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/galleries/:id/edit'}
+                        component={GalleriesEdit}
+                    />
+                    {/* frontend routes */}
                     <Route path='/home'>
                         <Home />
                     </Route>

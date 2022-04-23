@@ -85,6 +85,48 @@ export default function Gallery() {
                                 original: BackendURL + gallery.image3,
                                 thumbnail: BackendURL + gallery.image3,
                             },
+                            gallery.image4
+                                ? {
+                                      original: BackendURL + gallery.image4,
+                                      thumbnail: BackendURL + gallery.image4,
+                                  }
+                                : '',
+                            gallery.image5
+                                ? {
+                                      original: BackendURL + gallery.image5,
+                                      thumbnail: BackendURL + gallery.image5,
+                                  }
+                                : '',
+                            gallery.image6
+                                ? {
+                                      original: BackendURL + gallery.image6,
+                                      thumbnail: BackendURL + gallery.image6,
+                                  }
+                                : '',
+                            gallery.image7
+                                ? {
+                                      original: BackendURL + gallery.image7,
+                                      thumbnail: BackendURL + gallery.image7,
+                                  }
+                                : '',
+                            gallery.image8
+                                ? {
+                                      original: BackendURL + gallery.image8,
+                                      thumbnail: BackendURL + gallery.image8,
+                                  }
+                                : '',
+                            gallery.image9
+                                ? {
+                                      original: BackendURL + gallery.image9,
+                                      thumbnail: BackendURL + gallery.image9,
+                                  }
+                                : '',
+                            gallery.image10
+                                ? {
+                                      original: BackendURL + gallery.image10,
+                                      thumbnail: BackendURL + gallery.image10,
+                                  }
+                                : '',
                         ]
                         return (
                             <div className='col-lg-6'>

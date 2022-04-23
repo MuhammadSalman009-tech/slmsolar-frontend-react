@@ -6,24 +6,26 @@ import { useEffect } from 'react'
 import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import { set } from 'date-fns'
-import './projects.css'
-export default function GalleriesEdit() {
+import './testimonials.css'
+export default function TestimonialEdit() {
     let { id } = useParams()
-    const [project, setProject] = React.useState({
+    const [testimonial, setTestimonial] = React.useState({
         name: '',
-        video: '',
-        oldVideo: '',
+        about: '',
+        profile: '',
+        oldProfile: '',
     })
 
     let history = useHistory()
     useEffect(() => {
-        axios.get(BackendURL + 'api/projects/' + id).then((response) => {
-            setProject((project) => {
+        axios.get(BackendURL + 'api/testimonials/' + id).then((response) => {
+            setTestimonial((testimonial) => {
                 const updatedTestimonial = {
-                    ...project,
+                    ...testimonial,
                 }
                 updatedTestimonial.name = response.data.data.name
-                updatedTestimonial.oldVideo = response.data.data.video
+                updatedTestimonial.about = response.data.data.about
+                updatedTestimonial.oldProfile = response.data.data.profile
 
                 return updatedTestimonial
             })
@@ -33,12 +35,12 @@ export default function GalleriesEdit() {
     const handleSubmit = (e) => {
         e.preventDefault()
         let formData = new FormData()
-        formData.append('name', project.name)
-        formData.append('video', project.video)
-        formData.append('oldVideo', project.oldVideo)
-        console.log(formData)
+        formData.append('name', testimonial.name)
+        formData.append('about', testimonial.about)
+        formData.append('profile', testimonial.profile)
+        formData.append('oldProfile', testimonial.oldProfile)
         axios
-            .post(BackendURL + 'api/projects/update/' + id, formData, {
+            .post(BackendURL + 'api/testimonials/update/' + id, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data',
@@ -47,7 +49,7 @@ export default function GalleriesEdit() {
             .then((response) => {
                 console.log(response)
                 if (response.status == 201) {
-                    history.push('/admin/projects')
+                    history.push('/admin/galleries')
                 }
             })
     }
@@ -59,20 +61,20 @@ export default function GalleriesEdit() {
             <div className='col-md-9'>
                 <div className='container mt-4'>
                     <form className='dashboard-form' onSubmit={handleSubmit}>
-                        <h6>Edit project</h6>
+                        <h6>Edit Testimonial</h6>
                         <div className='mb-3'>
                             <label for='name' className='form-label'>
-                                Project Name
+                                Person Name
                             </label>
                             <input
                                 type='text'
                                 name='name'
                                 placeholder='Muhammad Salman'
-                                value={project.name}
+                                value={testimonial.name}
                                 onChange={(e) =>
-                                    setProject((project) => {
+                                    setTestimonial((testimonial) => {
                                         const updatedTestimonial = {
-                                            ...project,
+                                            ...testimonial,
                                         }
                                         updatedTestimonial.name = e.target.value
 
@@ -83,21 +85,43 @@ export default function GalleriesEdit() {
                                 className='form-control'
                             />
                         </div>
-
                         <div className='mb-3'>
-                            <label for='video' className='form-label'>
-                                Upload Video
+                            <label for='about' className='form-label'>
+                                About
+                            </label>
+                            <textarea
+                                className='form-control'
+                                id='about'
+                                name='about'
+                                onChange={(e) =>
+                                    setTestimonial((testimonial) => {
+                                        const updatedTestimonial = {
+                                            ...testimonial,
+                                        }
+                                        updatedTestimonial.about =
+                                            e.target.value
+
+                                        return updatedTestimonial
+                                    })
+                                }
+                                required
+                                rows='3'
+                                value={testimonial.about}></textarea>
+                        </div>
+                        <div className='mb-3'>
+                            <label for='profile' className='form-label'>
+                                Profile Image
                             </label>
                             <input
                                 type='file'
-                                name='video'
+                                name='profile'
                                 className='form-control'
                                 onChange={(e) =>
-                                    setProject((project) => {
+                                    setTestimonial((testimonial) => {
                                         const updatedTestimonial = {
-                                            ...project,
+                                            ...testimonial,
                                         }
-                                        updatedTestimonial.video =
+                                        updatedTestimonial.profile =
                                             e.target.files[0]
 
                                         return updatedTestimonial
@@ -106,24 +130,21 @@ export default function GalleriesEdit() {
                             />
                             <input
                                 type='hidden'
-                                name='oldVideo'
+                                name='oldProfile'
                                 className='form-control'
-                                value={project.oldVideo}
+                                value={testimonial.oldProfile}
                             />
-                            <video
-                                className='shadow rounded-lg mt-2'
-                                controls
-                                width='200'
-                                height='auto'>
-                                <source src={BackendURL + project.oldVideo} />
-                            </video>
+                            <img
+                                src={BackendURL + testimonial.oldProfile}
+                                className='edit-testimonial-img mt-2'
+                            />
                         </div>
 
                         <div className='mb-3'>
                             <button
                                 type='submit'
                                 className='btn btn-primary btn-sm'>
-                                Update project
+                                Update Testimonial
                             </button>
                         </div>
                     </form>

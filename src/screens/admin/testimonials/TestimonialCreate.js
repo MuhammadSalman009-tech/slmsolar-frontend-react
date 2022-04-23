@@ -27,15 +27,7 @@ export default function TestimonialCreate() {
             })
             .then((response) => {
                 console.log(response)
-                // if (response.data.status == 'success') {
-                //     localStorage.setItem(
-                //         'user',
-                //         JSON.stringify(response.data.user)
-                //     )
-                //     localStorage.setItem('token', response.data.token)
-                //     localStorage.setItem('loggedIn', true)
-                //     history.push('/admin/dashboard')
-                // }
+                history.push('/admin/testimonials')
             })
     }
     return (
