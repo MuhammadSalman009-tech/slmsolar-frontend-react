@@ -76,14 +76,16 @@ class ChatPopup extends React.Component {
                     className={`my-modal b-dblue p-2 py-2 shadow-lg round-border grey ${this.state.disply}`}>
                     <div className='d-flex justify-content-between '>
                         <h5 className='text-center my-2 ml-3'>Contact Us</h5>
-                        <div className='cursor-pointer'
-                        onClick={() => this.setState({disply: 'd-none'})}
-                        >
+                        <div
+                            className='cursor-pointer'
+                            onClick={() => this.setState({ disply: 'd-none' })}>
                             {/* <i
                                 className='fa fa-times fa-2x  animate__animated animate__pulse animate__infinite'
                                 aria-hidden='true'></i> */}
 
-                                <h2 className='mr-3 text-warning font-weight-bold'>x</h2>
+                            <h2 className='mr-3 text-warning font-weight-bold'>
+                                x
+                            </h2>
                         </div>
                     </div>
 
@@ -132,9 +134,9 @@ class ChatPopup extends React.Component {
                             </div>
 
                             <div className='col-12'>
-                                <div class='form-group'>
+                                <div className='form-group'>
                                     <textarea
-                                        class='form-control my-1'
+                                        className='form-control my-1'
                                         placeholder='your message'
                                         rows='3'
                                         value={this.state.message}

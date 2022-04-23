@@ -1,25 +1,10 @@
 import ImageGallery from 'react-image-gallery'
-
-import base_hill1 from '../assests/base_hill1.jpg'
-import base_hill2 from '../assests/base_hill2.jpg'
-import base_hill3 from '../assests/base_hill3.jpg'
-import base_hill4 from '../assests/base_hill4.jpg'
-import base_hill5 from '../assests/base_hill5.jpg'
-import base_hill6 from '../assests/base_hill6.jpg'
-import React, { useRef, useState, useEffect } from 'react'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-
+import React, { useState, useEffect } from 'react'
 import './gallery.css'
-
-// import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper'
-
 import { Helmet } from 'react-helmet'
 import axios from 'axios'
 import { BackendURL } from '../url'
 export default function Gallery() {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null)
     const [projects, setProjects] = useState([])
     const [galleries, setGalleries] = useState([])
 
@@ -27,12 +12,12 @@ export default function Gallery() {
         axios.get(BackendURL + 'api/projects').then((response) => {
             // setTestimonials(response.data.data)
             setProjects(response.data.data)
-            console.log(projects)
+            // console.log(projects)
         })
         axios.get(BackendURL + 'api/galleries').then((response) => {
             // console.log(response.data.data)
             setGalleries(response.data.data)
-            console.log(galleries)
+            // console.log(galleries)
         })
     }, [])
     return (

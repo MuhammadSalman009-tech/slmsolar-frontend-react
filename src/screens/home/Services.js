@@ -7,21 +7,25 @@ import battery from '../../assests/battery.png'
 const Services = () => {
     const services = [
         {
+            id: 1,
             name: 'Domestic Solar System',
             src: house,
             url: '/services/domestic-power-system',
         },
         {
+            id: 2,
             name: 'Commercial Solar Systems',
             src: solar_panel,
             url: '/services/commercial-power-system',
         },
         {
+            id: 3,
             name: 'Hybird Solar System',
             src: hybrid,
             url: '/services/hybrid-solar-system',
         },
         {
+            id: 4,
             name: 'Solar Batteries and Storage',
             src: battery,
             url: '/services/solar-batteries-and-storage',
@@ -84,7 +88,7 @@ const Services = () => {
                         <div className='container-fluid'>
                             <div className='row'>
                                 {services.map((s) => (
-                                    <div className='col-12 col-md-6'>
+                                    <div className='col-12 col-md-6' key={s.id}>
                                         <a href={s.url}>
                                             <div className=' b-grey rounded-lg dblue p-2 my-2 hvr-grow'>
                                                 <h5 className='ml-2 mt-2'>

@@ -9,17 +9,21 @@ import { Link } from 'react-router-dom'
 
 class Products extends Component {
     state = {}
-    products = [{
+    products = [
+        {
+            id: 1,
             name: 'Solar Pannel',
             src: product1,
             url: 'products/solar-pannel',
         },
         {
+            id: 2,
             name: 'Solar Batteries',
             src: product2,
             url: 'products/solar-battery',
         },
         {
+            id: 3,
             name: 'Invertors',
             src: product3,
             url: 'products/invertors',
@@ -37,51 +41,44 @@ class Products extends Component {
     ]
 
     render() {
-        return ( <
-            div className = 'my-3 py-4'
-            style = {
-                {
+        return (
+            <div
+                className='my-3 py-4'
+                style={{
                     backgroundImage: `url(${b_products})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     backgroundAttachment: 'fixed',
-                }
-            } >
-            <
-            div className = 'text-center grey' >
-            <
-            h2 > Our Products < /h2> <
-            p > We offer the best quality solar products < /p> <
-            /div>
-
-            <
-            div className = 'container' >
-            <
-            div className = 'row m-0 d-flex justify-content-center flex-wrap' > {
-                this.products.map((p) => ( <
-                    div className = 'col-md-6 col-lg-4' >
-                    <
-                    a href = { p.url } >
-                    <
-                    div className = 'b-grey d-flex flex-column align-items-center my-2 rounded-lg shadow  hvr-sweep-to-top' >
-                    <
-                    img className = 'img-fluid'
-                    src = { p.src }
-                    alt = { p.name }
-                    /> <
-                    h5 className = 'my-2' > { p.name } < /h5> <
-                    button type = 'button'
-                    className = 'btn b-lblue btn-info grey my-3' >
-                    View Details <
-                    /button> <
-                    /div> <
-                    /a> <
-                    /div>
-                ))
-            } <
-            /div> <
-            /div> <
-            /div>
+                }}>
+                <div className='text-center grey'>
+                    <h2> Our Products </h2>{' '}
+                    <p> We offer the best quality solar products </p>{' '}
+                </div>
+                <div className='container'>
+                    <div className='row m-0 d-flex justify-content-center flex-wrap'>
+                        {' '}
+                        {this.products.map((p) => (
+                            <div className='col-md-6 col-lg-4' key={p.id}>
+                                <a href={p.url}>
+                                    <div className='b-grey d-flex flex-column align-items-center my-2 rounded-lg shadow  hvr-sweep-to-top'>
+                                        <img
+                                            className='img-fluid'
+                                            src={p.src}
+                                            alt={p.name}
+                                        />{' '}
+                                        <h5 className='my-2'> {p.name} </h5>{' '}
+                                        <button
+                                            type='button'
+                                            className='btn b-lblue btn-info grey my-3'>
+                                            View Details{' '}
+                                        </button>{' '}
+                                    </div>{' '}
+                                </a>{' '}
+                            </div>
+                        ))}{' '}
+                    </div>{' '}
+                </div>{' '}
+            </div>
         )
     }
 }

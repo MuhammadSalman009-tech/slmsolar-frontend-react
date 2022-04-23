@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assests/logo.png'
-import s_logo from '../assests/sf_logo.png'
+import sf_logo from '../assests/sf_logo.png'
 
 class Footer extends Component {
     state = {}
@@ -180,13 +180,10 @@ class Footer extends Component {
                             </ul>
                         </div>
                         <div className='col-sm-12 col-lg-2'>
-                            <img src={logo} alt='slm solar' />
-                            <br/>
+                            <img src={sf_logo} alt='slm solar' width={140} />
+                            <br />
                             {/* <img classname='logo_img' src={s_logo} alt='solaris finance' /> */}
-                            
                         </div>
-                        
-                        
                     </div>
                     <hr
                         className='p-0 grey'
@@ -210,7 +207,7 @@ class Footer extends Component {
                                 <i className='fa fa-facebook fa-lg grey mx-2'></i>
                             </a>
                             <a href='https://www.instagram.com/slm_solar/'>
-                                <i className='fa fa-instagram fa-lg grey' mx-2></i>
+                                <i className='fa fa-instagram fa-lg grey mx-2'></i>
                             </a>
                             {/* <a href='/'>
                                 <i className='fa fa-twitter fa-lg grey'></i>

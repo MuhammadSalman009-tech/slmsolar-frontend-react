@@ -14,7 +14,7 @@ export default function GalleriesIndex() {
         axios.get(BackendURL + 'api/galleries').then((response) => {
             // setGalleries(response.data.data)
             setGalleries(response.data.data)
-            console.log(galleries)
+            // console.log(galleries)
         })
     }, [])
     function deleteTestimonial() {
@@ -37,35 +37,35 @@ export default function GalleriesIndex() {
     return (
         <div className='row'>
             <div
-                class='modal fade'
+                className='modal fade'
                 id='exampleModal'
-                tabindex='-1'
+                tabIndex='-1'
                 aria-labelledby='exampleModalLabel'
                 aria-hidden='true'>
-                <div class='modal-dialog'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='exampleModalLabel'>
+                <div className='modal-dialog'>
+                    <div className='modal-content'>
+                        <div className='modal-header'>
+                            <h5 className='modal-title' id='exampleModalLabel'>
                                 Are you sure you want to delete?
                             </h5>
                             <button
                                 type='button'
-                                class='close'
+                                className='close'
                                 data-dismiss='modal'
                                 aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span>
                             </button>
                         </div>
-                        <div class='modal-body d-flex justify-content-end'>
+                        <div className='modal-body d-flex justify-content-end'>
                             <button
                                 type='button'
-                                class='btn btn-secondary btn-sm m-1'
+                                className='btn btn-secondary btn-sm m-1'
                                 data-dismiss='modal'>
                                 Cancel
                             </button>
                             <button
                                 type='button'
-                                class='btn btn-sm btn-warning m-1'
+                                className='btn btn-sm btn-warning m-1'
                                 onClick={deleteTestimonial}
                                 data-dismiss='modal'>
                                 Delete
@@ -84,12 +84,12 @@ export default function GalleriesIndex() {
                         <Link
                             to='/admin/galleries/create'
                             className='btn btn-primary'>
-                            <i class='fa fa-plus'></i> Add Gallery
+                            <i className='fa fa-plus'></i> Add Gallery
                         </Link>
                     </div>
-                    <table class='table'>
+                    <table className='table'>
                         <tbody>
-                            <tr class='bg-primary text-white'>
+                            <tr className='bg-primary text-white'>
                                 <th scope='col'>#</th>
                                 <th scope='col'>Name</th>
                                 <th scope='col'>Gallery</th>
