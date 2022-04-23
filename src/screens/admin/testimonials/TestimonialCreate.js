@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import SideNav from '../../../common/SideNav'
 import { BackendURL } from '../../../url'
 import '../dashboard.css'
-export default function Create() {
+export default function TestimonialCreate() {
     const [name, setName] = React.useState('')
     const [about, setAbout] = React.useState('')
     const [profile, setProfile] = React.useState(null)

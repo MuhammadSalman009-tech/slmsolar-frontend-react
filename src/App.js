@@ -19,9 +19,12 @@ import ChatPopup from './screens/home/ChatPopup'
 import Whatsapp from './screens/home/Whatsapp'
 import Login from './screens/auth/Login'
 import Dashboard from './screens/admin/Dashboard'
-import Create from './screens/admin/testimonials/Create'
-import Index from './screens/admin/testimonials/Index'
-import Edit from './screens/admin/testimonials/Edit'
+import TestimonialIndex from './screens/admin/testimonials/TestimonialIndex'
+import TestimonialCreate from './screens/admin/testimonials/TestimonialCreate'
+import TestimonialEdit from './screens/admin/testimonials/TestimonialEdit'
+import ProjectIndex from './screens/admin/projects/ProjectIndex'
+import ProjectCreate from './screens/admin/projects/ProjectCreate'
+import ProjectEdit from './screens/admin/projects/ProjectEdit'
 
 function App() {
     return (
@@ -41,19 +44,33 @@ function App() {
                     <Route
                         exact
                         path={'/admin/testimonials'}
-                        component={Index}
+                        component={TestimonialIndex}
                     />
                     <Route
                         exact
                         path={'/admin/testimonials/create'}
-                        component={Create}
+                        component={TestimonialCreate}
                     />
                     <Route
                         exact
                         path={'/admin/testimonials/:id/edit'}
-                        component={Edit}
+                        component={TestimonialEdit}
                     />
-
+                    <Route
+                        exact
+                        path={'/admin/projects'}
+                        component={ProjectIndex}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/projects/create'}
+                        component={ProjectCreate}
+                    />
+                    <Route
+                        exact
+                        path={'/admin/projects/:id/edit'}
+                        component={ProjectEdit}
+                    />
                     <Route path='/home'>
                         <Home />
                     </Route>

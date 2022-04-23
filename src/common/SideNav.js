@@ -13,8 +13,8 @@ export default function SideNav() {
                     </Link>
                     <Link
                         className='btn btn-primary btn-sm d-block align-items-center mb-2'
-                        to='/home'>
-                        Home
+                        to='/admin/projects'>
+                        Projects
                     </Link>
                 </li>
                 <li className='border-top my-3'></li>

@@ -6,7 +6,7 @@ import { BackendURL } from '../../../url'
 import axios from 'axios'
 import './testimonials.css'
 
-export default function Index() {
+export default function TestimonialIndex() {
     const [testimonials, setTestimonials] = useState([])
     const [deleteTestimonialID, setDeleteTestimonialID] = useState('')
 
