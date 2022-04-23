@@ -9,6 +9,7 @@ export default function Login() {
         history.push('/admin/testimonials')
     }
     const [email, setEmail] = React.useState('')
+    const [loginError, setLoginError] = React.useState('')
     const [password, setPassword] = React.useState('')
 
     const handleSubmit = (e) => {
@@ -30,11 +31,22 @@ export default function Login() {
                     history.push('/admin/testimonials')
                 }
             })
+            .catch(function (error) {
+                // console.log(error.response.data.error)
+                if (error.response.data.error) {
+                    setLoginError(error.response.data.error)
+                }
+            })
     }
 
     return (
         <div className='container mt-4'>
             <form onSubmit={handleSubmit} className='auth-form'>
+                {loginError ? (
+                    <div className='alert alert-danger'>{loginError}</div>
+                ) : (
+                    ''
+                )}
                 <h6>Login</h6>
                 <div className='mb-3'>
                     <input

@@ -180,9 +180,14 @@ class Footer extends Component {
                             </ul>
                         </div>
                         <div className='col-sm-12 col-lg-2'>
-                            <img src={sf_logo} alt='slm solar' width={140} />
+                            <img src={logo} alt='slm solar' />
                             <br />
-                            {/* <img classname='logo_img' src={s_logo} alt='solaris finance' /> */}
+                            <img
+                                classname='logo_img'
+                                src={sf_logo}
+                                alt='solaris finance'
+                                width={140}
+                            />
                         </div>
                     </div>
                     <hr
